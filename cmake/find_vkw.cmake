@@ -1,0 +1,9 @@
+if(NOT DEFINED RENDERER_INSTALL_DIR)
+    message(FATAL_ERROR "'RENDERER_INSTALL_DIR' is not set. Add -DRENDERER_INSTALL_DIR=path/to/VkRenderer/install")
+endif()
+
+set(RENDERER_LIB_DIR ${RENDERER_INSTALL_DIR}/lib)
+set(RENDERER_INCLUDE_DIR ${RENDERER_INSTALL_DIR}/include)
+include_directories(${RENDERER_INCLUDE_DIR})
+find_library(RENDERER_LIB NAMES VkWrapper.a libVkWrapper libVkWrapper.so PATHS ${RENDERER_LIB_DIR} REQUIRED)
+message(STATUS ${RENDERER_LIB})
