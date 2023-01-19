@@ -3,14 +3,16 @@
 
 #include "vkw/Device.hpp"
 
-namespace re{
+namespace re {
 
-    class Engine{
-    public:
-        explicit Engine(vkw::Device& device);
+class Engine {
+public:
+  explicit Engine(vkw::Device &device);
 
-    private:
-        std::reference_wrapper<vkw::Device> m_device;
-    };
-}
-#endif //RENDERENGINE_ENGINE_HPP
+  auto &device() const { return m_device.get(); }
+
+private:
+  std::reference_wrapper<vkw::Device> m_device;
+};
+} // namespace re
+#endif // RENDERENGINE_ENGINE_HPP

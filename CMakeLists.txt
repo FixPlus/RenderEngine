@@ -14,6 +14,8 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 target_link_libraries(RenderEngine PUBLIC ${RENDERER_LIB})
 target_include_directories(RenderEngine PUBLIC include)
+set(RE_RUNTIME_DIR ${CMAKE_CURRENT_BINARY_DIR})
+add_subdirectory(test)
 
 install(TARGETS RenderEngine)
 install(DIRECTORY include DESTINATION .)
